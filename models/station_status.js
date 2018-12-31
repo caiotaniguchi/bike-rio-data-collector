@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const StationStatusSchema = new mongoose.Schema({
     station_id: String,
     num_bikes_available: String,
-    num_bikes_available_types: Object,
+    num_bikes_available_mechanical: Number,
+    num_bikes_available_ebike: Number,
     num_bikes_disabled: Number,
     num_docks_available: Number,
     num_docks_disabled: Number,
