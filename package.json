@@ -1,0 +1,23 @@
+{
+  "name": "bike-rio-data-collector",
+  "version": "1.0.0",
+  "description": "Extract and store GBFS data from Bike Rio bike sharing system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caiotaniguchi/bike-rio-data-collector.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caiotaniguchi/bike-rio-data-collector/issues"
+  },
+  "homepage": "https://github.com/caiotaniguchi/bike-rio-data-collector#readme",
+  "dependencies": {
+    "mongoose": "^5.4.1",
+    "node-fetch": "^2.3.0"
+  }
+}
