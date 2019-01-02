@@ -22,8 +22,12 @@ const transformStationInformationData = (rawData) => {
 
 const transformStationStatusData = (rawData) => {
     let data = rawData.data.stations;
-    data.num_bikes_available_mechanical = data.num_bikes_available_types.mechanical;
-    data.num_bikes_available_ebike = data.num_bikes_available_types.ebike;
+
+    for (let i = 0; i < data.length; i++) {
+        data[i].num_bikes_available_mechanical = data[i].num_bikes_available_types.mechanical;
+        data[i].num_bikes_available_ebike = data[i].num_bikes_available_types.ebike;
+        delete data[i].num_bikes_available_types;
+    }
     return data
 }
 
@@ -31,7 +35,7 @@ const transformSystemInformationData = (rawData) => {
     return rawData.data;
 }
 
-const transformSystemPricingPlanData = (rawData) => {
+const transformSystemPricingPlansData = (rawData) => {
     return rawData.data.plans;
 }
 
@@ -40,7 +44,7 @@ const transformData = (rawData, endpoint) => {
         station_information: transformStationInformationData,
         station_status: transformStationStatusData,
         system_information: transformSystemInformationData,
-        system_pricing_plan: transformSystemPricingPlanData,
+        system_pricing_plans: transformSystemPricingPlansData,
     }
     return dataTransforms[endpoint](rawData);
 }
@@ -50,4 +54,4 @@ const get = async (endpoint) => {
     return transformData(rawData, endpoint);
 }
 
-module.exports = get;
+module.exports.get = get;
